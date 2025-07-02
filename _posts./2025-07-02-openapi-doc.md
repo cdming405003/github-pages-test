@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "openapi-doc"
+title: openapi-doc
 date: 2025-07-02
 tags: [Jekyll, GitHub Pages]
 permalink: /doc/
