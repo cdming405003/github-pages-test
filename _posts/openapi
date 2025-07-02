@@ -1,6 +1,8 @@
 ---
-layout: page  # 使用默认布局（或自定义布局）
-title: openapi-doc # 页面标题
+layout: post
+title: "openapi-doc"
+date: 2025-07-02
+tags: [Jekyll, GitHub Pages]
 ---
 # Overview
 
