@@ -1,0 +1,7 @@
+remote_theme: "mmistakes/minimal-mistakes"
+plugins:
+  - jekyll-include-cache
+
+# 站点基础信息
+title: TradeUp OpenAPI docs
+description: TradeUp OpenAPI DOCS
