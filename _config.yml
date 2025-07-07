@@ -4,4 +4,21 @@ plugins:
 
 # 站点基础信息
 title: TradeUp OpenAPI docs
-description: TradeUp OpenAPI DOCS
+description: TradeUp OpenAPI 文档站
+
+# 导航配置引用
+defaults:
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      toc: true
+      sidebar:
+        nav: "docs"
+
+docs:
+  - title: "OpenAPI 概览"
+    url: /openapi-doc/
+  - title: "OpenAPI 详细"
+    url: /openapi-doc1/
