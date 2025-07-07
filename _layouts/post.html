@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: #f8f9fa;
+  }
+  .top-banner {
+    width: 100vw;
+    background: #fffbe6;
+    border-bottom: 1.5px solid #ffe58f;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  .top-banner .logo {
+    color: #faad14;
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 32px;
+    letter-spacing: 1px;
+  }
+  .layout-container {
+    display: flex;
+    margin-top: 48px;
+  }
+  .left-nav {
+    width: 220px;
+    background: #fff;
+    border-right: 1px solid #f0f0f0;
+    min-height: 100vh;
+    padding: 24px 0 24px 0;
+    position: fixed;
+    top: 48px;
+    left: 0;
+    z-index: 999;
+  }
+  .left-nav ul {
+    list-style: none;
+    padding: 0 0 0 24px;
+    margin: 0;
+  }
+  .left-nav li {
+    margin-bottom: 18px;
+  }
+  .left-nav a {
+    color: #222;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.2s;
+  }
+  .left-nav a.active, .left-nav a:hover {
+    color: #faad14;
+    font-weight: bold;
+  }
+  .main-content {
+    flex: 1;
+    margin-left: 220px;
+    padding: 32px 32px 32px 32px;
+    background: #fff;
+    min-height: 100vh;
+  }
+  .toc {
+    position: fixed;
+    right: 32px;
+    top: 80px;
+    width: 260px;
+    background: #fff;
+    border-left: 2px solid #ffe58f;
+    padding: 18px 18px 18px 24px;
+    font-size: 15px;
+    max-height: 70vh;
+    overflow-y: auto;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .toc h3 {
+    margin-top: 0;
+    font-size: 16px;
+    color: #faad14;
+    margin-bottom: 12px;
+  }
+  .toc ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .toc li {
+    margin-bottom: 8px;
+  }
+  .toc a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .toc a:hover {
+    color: #faad14;
+  }
+  @media (max-width: 900px) {
+    .toc { display: none; }
+    .left-nav { display: none; }
+    .main-content { margin-left: 0; }
+  }
+  </style>
+</head>
+<body>
+  <div class="top-banner">
+    <span class="logo">TradeUp OpenAPI docs</span>
+  </div>
+  <div class="layout-container">
+    <nav class="left-nav">
+      <ul id="file-nav-list">
+        {% assign posts = site.posts | sort: 'title' %}
+        {% for post in posts %}
+          <li><a href="{{ post.url }}" {% if page.url == post.url %}class="active"{% endif %}>{{ post.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </nav>
+    <div class="main-content" id="main-content">
+      {{ content }}
+    </div>
+  </div>
+  <script>
+  // 自动生成右侧锚点目录（所有h1-h6）
+  window.addEventListener('DOMContentLoaded', () => {
+    const content = document.getElementById('main-content');
+    const toc = document.createElement('div');
+    toc.className = 'toc';
+    toc.innerHTML = '<h3>页面目录</h3><ul id="toc-list"></ul>';
+    document.body.appendChild(toc);
+    const headers = content.querySelectorAll('h1, h2, h3, h4, h5, h6');
+    const ul = toc.querySelector('#toc-list');
+    headers.forEach(header => {
+      if(!header.id) header.id = 'toc-' + Math.random().toString(36).substr(2,9);
+      const li = document.createElement('li');
+      li.style.marginLeft = (parseInt(header.tagName[1])-1)*16 + 'px';
+      const a = document.createElement('a');
+      a.href = '#' + header.id;
+      a.textContent = header.textContent;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  });
+  </script>
+</body>
+</html> 
