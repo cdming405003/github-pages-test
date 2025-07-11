@@ -3,7 +3,7 @@ layout: post
 title: openapi-doc1
 date: 2025-07-02
 tags: [Jekyll, GitHub Pages]
-permalink: /doc1/
+permalink: /openapi/
 ---
 # Overview
 
