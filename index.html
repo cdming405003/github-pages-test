@@ -2,20 +2,31 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>P23 文档</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <title>Docsify Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <style>
+    /* 右侧目录浮动样式 */
+    .app-sub-sidebar {
+      font-size: 0.9em;
+    }
+  </style>
 </head>
 <body>
-  <div id="app"></div>
+  <div id="app">Loading...</div>
   <script>
     window.$docsify = {
-      name: 'P23 文档',
+      name: 'My Docs',
+      repo: '',
       loadSidebar: true,
       subMaxLevel: 2,
-      loadNavbar: false
-    }
+      loadNavbar: false,
+      themeColor: '#42b983',
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      }
+    };
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 </body>
-</html> 
+</html>
