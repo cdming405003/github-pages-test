@@ -4,8 +4,13 @@
   <meta charset="UTF-8" />
   <title>Redirecting...</title>
   <script>
-    // 将所有访问路径跳转到 /openapi
-    window.location.replace("/openapi");
+    // 获取当前路径
+    const path = window.location.pathname;
+    
+    // 如果路径不是/openapi，则重定向
+    if (path !== "/openapi") {
+      window.location.replace("/openapi");
+    }
   </script>
 </head>
 <body>
