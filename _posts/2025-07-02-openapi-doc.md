@@ -71,7 +71,7 @@ Users can use OpenAPI for free as long as they have an active and funded TradeUP
 
 #### For Individual Investors:
 
-Once your account is opened and funded, you can visit the \[Developer Platform] to complete the onboarding process.
+Once your account is opened and funded, you can visit the [Developer Platform](https://developer.tradeup.com/) to complete the onboarding process.
 
 #### For Institutional Investors:
 
@@ -111,7 +111,7 @@ git clone https://github.com/tigerbrokers/openapi-java-sdk
 
 ### Registered Developer Information
 
-Before using OpenAPI, you must open and fund your TradeUP account and apply for OpenAPI permission. Personal users can register as developers on the \[Developer Platform], and institutional users can access OpenAPI via the Institutional Hub. **Please use Chrome for this page.**
+Before using OpenAPI, you must open and fund your TradeUP account and apply for OpenAPI permission. Personal users can register as developers on the [Developer Platform](https://developer.tradeup.com/) , and institutional users can access OpenAPI via the Institutional Hub. **Please use Chrome for this page.**
 
 In order to access OpenAPI, you need to open and fund your TradeUP account.
 
@@ -449,67 +449,10 @@ client_config.token_refresh_duration = 24 * 60 * 60
 
 ### Get Contracts
 
-<Table align={["left","left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Method
-      </th>
-
-      <th>
-        Description
-      </th>
-
-      <th>
-        Parameters
-      </th>
-
-      <th>
-        Response
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        get\_contracts
-      </td>
-
-      <td>
-        Retrieve multiple contract objects simultaneously with complete specifications including symbols, expiration dates, and trading terms
-      </td>
-
-      <td>
-        symbol(str)<br />sec\_type(SecurityType)
-        <br />currency(Currency)<br />exchange(str)<br />expiry(str)<br />strike(float)<br />put\_call(str)
-      </td>
-
-      <td>
-        Contract Object:<br />- symbol(str)<br />- sec\_type(str)<br />- currency(str)<br />- exchange(str)<br />- expiry(str)<br />- strike(float)<br />- put\_call(str)<br />- multiplier(float)<br />- name(str)<br />- market(str)<br />- identifier(str)<br />- shortable(bool)<br />- marginable(bool)<br />- min\_tick(float)<br />- tick\_sizes(list)<br />- status(str)<br />- trade(bool)<br />- lot\_size(float)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        get\_contract
-      </td>
-
-      <td>
-        Access detailed information about specific trading contract including tick sizes, margin requirements, and settlement terms
-      </td>
-
-      <td>
-        symbol(str)<br />sec\_type(SecurityType)<br />currency(Currency)<br />exchange(str)
-      </td>
-
-      <td>
-        list\[Contract]:<br />Each item contains same fields as Contract Object
-      </td>
-    </tr>
-  </tbody>
-</Table>
-
+| Method        | Description                                                                                     | Parameters                                                                 | Response                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|---------------|-------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `get_contracts` | Retrieve multiple contract objects simultaneously with complete specifications including symbols, expiration dates, and trading terms | `symbol` (str)<br>`sec_type` (SecurityType)<br>`currency` (Currency)<br>`exchange` (str)<br>`expiry` (str)<br>`strike` (float)<br>`put_call` (str) | Contract Object:<br>- `symbol` (str)<br>- `sec_type` (str)<br>- `currency` (str)<br>- `exchange` (str)<br>- `expiry` (str)<br>- `strike` (float)<br>- `put_call` (str)<br>- `multiplier` (float)<br>- `name` (str)<br>- `market` (str)<br>- `identifier` (str)<br>- `shortable` (bool)<br>- `marginable` (bool)<br>- `min_tick` (float)<br>- `tick_sizes` (list)<br>- `status` (str)<br>- `trade` (bool)<br>- `lot_size` (float) |
+| `get_contract`  | Access detailed information about specific trading contract including tick sizes, margin requirements, and settlement terms | `symbol` (str)<br>`sec_type` (SecurityType)<br>`currency` (Currency)<br>`exchange` (str) | `list[Contract]`:<br>Each item contains same fields as Contract Object |
 
 
 ### Get Order Information
