@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Redirecting...</title>
-  <script>
-    // 获取当前路径
-    const path = window.location.pathname;
-    
-    // 如果路径不是/openapi，则重定向
-    if (path !== "/openapi") {
-      window.location.replace("/openapi");
-    }
-  </script>
+  <meta charset="UTF-8">
+  <title>My Docs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
 </head>
 <body>
-  <p>If you are not redirected, <a href="/openapi">click here</a>.</p>
+  <div id="app">Loading...</div>
+
+  <script>
+    window.$docsify = {
+      name: 'OpenAPI Docs',
+      repo: '', // optional: 显示 GitHub 仓库链接
+      loadSidebar: true,
+      subMaxLevel: 2,
+      loadNavbar: true
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
 </body>
 </html>
